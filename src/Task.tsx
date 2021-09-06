@@ -31,20 +31,30 @@ const Container = styled.div<{ isCurrentlyDragging: boolean }>`
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 9px;
+  display: flex;
   background-color: ${({ isCurrentlyDragging }) =>
     isCurrentlyDragging ? "lightgreen" : "white"};
 `;
+
+// const Handle = styled.div`
+//   width: 20px;
+//   height: 20px;
+//   background-color: orange;
+//   border-radius: 4px;
+//   margin-right: 8px;
+// `;
 
 const Task = ({ task, indexForDraggable }: TaskProps) => {
   return (
     <Draggable draggableId={task.id} index={indexForDraggable}>
       {(provided, snapshot: DraggableStateSnapshot) => (
         <Container
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
+          {...provided.draggableProps} // pozwalają na bycie przesuwanym przez element który ma dragHandleProps
+          {...provided.dragHandleProps} // pozwalają na złapanie elementu i przesuwanie elementem który ma draggableProps
           ref={provided.innerRef}
           isCurrentlyDragging={snapshot.isDragging}
         >
+          {/* <Handle {...provided.dragHandleProps} /> */}
           {task.content}
         </Container>
       )}
