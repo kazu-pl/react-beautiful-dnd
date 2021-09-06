@@ -26,14 +26,21 @@ interface TaskProps {
   indexForDraggable: number;
 }
 
-const Container = styled.div<{ isCurrentlyDragging: boolean }>`
+const Container = styled.div<{
+  isCurrentlyDragging: boolean;
+  isDragDisabled: boolean;
+}>`
   border: 1px solid lightgrey;
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 9px;
   display: flex;
-  background-color: ${({ isCurrentlyDragging }) =>
-    isCurrentlyDragging ? "lightgreen" : "white"};
+  background-color: ${({ isCurrentlyDragging, isDragDisabled }) =>
+    isDragDisabled
+      ? "lightgrey"
+      : isCurrentlyDragging
+      ? "lightgreen"
+      : "white"};
 `;
 
 // const Handle = styled.div`
@@ -45,14 +52,21 @@ const Container = styled.div<{ isCurrentlyDragging: boolean }>`
 // `;
 
 const Task = ({ task, indexForDraggable }: TaskProps) => {
+  const isDragDisabled = task.id === "task-1";
+
   return (
-    <Draggable draggableId={task.id} index={indexForDraggable}>
+    <Draggable
+      draggableId={task.id}
+      index={indexForDraggable}
+      isDragDisabled={isDragDisabled}
+    >
       {(provided, snapshot: DraggableStateSnapshot) => (
         <Container
           {...provided.draggableProps} // pozwalają na bycie przesuwanym przez element który ma dragHandleProps
           {...provided.dragHandleProps} // pozwalają na złapanie elementu i przesuwanie elementem który ma draggableProps
           ref={provided.innerRef}
           isCurrentlyDragging={snapshot.isDragging}
+          isDragDisabled={isDragDisabled}
         >
           {/* <Handle {...provided.dragHandleProps} /> */}
           {task.content}

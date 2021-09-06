@@ -23,7 +23,7 @@ export const initialData: InitialData = {
   tasks: {
     "task-1": {
       id: "task-1",
-      content: "Take out the garbage",
+      content: "Take out the garbage - not allowed to drag",
     },
     "task-2": {
       id: "task-2",

@@ -51,7 +51,11 @@ const Column = ({ column, tasks }: ColumnProps) => {
   return (
     <Container>
       <Title>{column.title}</Title>
-      <Droppable droppableId={column.id}>
+      <Droppable
+        droppableId={column.id}
+        // type={'tasks'} // możesz ustawić type itemów dla Droppable i wtedy jeśli item będzie miał inny typ to nie będzie tam można upuszczać itemów
+        // isDropDisabled={true} // jak jest true to nie będzie można upuszczać tutaj nawet tasków tego samego typu
+      >
         {(probided, snapschot: DroppableStateSnapshot) => (
           <TaskList
             ref={probided.innerRef}
