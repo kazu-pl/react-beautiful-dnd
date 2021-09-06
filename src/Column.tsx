@@ -29,6 +29,10 @@ const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
   border-radius: 2px;
+  min-width: 220px;
+
+  display: flex; // ważne, ponieważ trzeba nadać TaskList jakaś wysokość i najlepiej jest dać mu flex-grow, dlatego tutaj flex
+  flex-direction: column;
 `;
 const Title = styled.h3`
   padding: 8px;
@@ -38,6 +42,9 @@ const TaskList = styled.div<{ isAnyItemDraggingOverTaskList: boolean }>`
   transition: background-color 0.2s ease;
   background-color: ${({ isAnyItemDraggingOverTaskList }) =>
     isAnyItemDraggingOverTaskList ? "skyblue" : "white"};
+
+  flex-grow: 1; // nadajemy flex-grow aby ten element miał zawsze max dostepną wysokość bo to on ma droppableProps i ref i to w nim można umieszczać elementy
+  min-height: 100px; // ważne, w przypadku jakby w kolumnie nie było żadnych elementów to TaskList miałby wysokosć 0 więc nie dałoby się do niego dodać żadnego tasku dlatego trzeba dodac jakąś minimalną wysokość
 `;
 
 const Column = ({ column, tasks }: ColumnProps) => {
