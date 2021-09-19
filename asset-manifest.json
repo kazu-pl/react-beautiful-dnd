@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/react-beautiful-dnd/static/js/main.f53052c8.chunk.js",
+    "main.js.map": "/react-beautiful-dnd/static/js/main.f53052c8.chunk.js.map",
+    "runtime-main.js": "/react-beautiful-dnd/static/js/runtime-main.2b8da4a4.js",
+    "runtime-main.js.map": "/react-beautiful-dnd/static/js/runtime-main.2b8da4a4.js.map",
+    "static/css/2.bd61b917.chunk.css": "/react-beautiful-dnd/static/css/2.bd61b917.chunk.css",
+    "static/js/2.57da3ee3.chunk.js": "/react-beautiful-dnd/static/js/2.57da3ee3.chunk.js",
+    "static/js/2.57da3ee3.chunk.js.map": "/react-beautiful-dnd/static/js/2.57da3ee3.chunk.js.map",
+    "index.html": "/react-beautiful-dnd/index.html",
+    "static/css/2.bd61b917.chunk.css.map": "/react-beautiful-dnd/static/css/2.bd61b917.chunk.css.map",
+    "static/js/2.57da3ee3.chunk.js.LICENSE.txt": "/react-beautiful-dnd/static/js/2.57da3ee3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2b8da4a4.js",
+    "static/css/2.bd61b917.chunk.css",
+    "static/js/2.57da3ee3.chunk.js",
+    "static/js/main.f53052c8.chunk.js"
+  ]
+}
